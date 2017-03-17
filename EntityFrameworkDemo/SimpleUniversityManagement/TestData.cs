@@ -45,12 +45,10 @@ namespace SimpleUniversityManagement
             {
                 new Professor()
                 {
-                    Id = rand.Next(),
                     Name = "Baltazar"
                 },
                 new Professor()
                 {
-                    Id = rand.Next(),
                     Name = "X"
                 }
             };

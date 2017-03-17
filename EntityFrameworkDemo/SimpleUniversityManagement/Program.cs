@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using SimpleUniversityManagement.Models;
@@ -16,9 +17,51 @@ namespace SimpleUniversityManagement
         static void Main(string[] args)
         {
             CreateDemo();
-            Print();
+            // Print().Wait();
+            RunDemo();
             DeleteDemo();
-            Print();
+            // Print().Wait();
+        }
+
+        private static void RunDemo()
+        {
+            using (var db = new UniversityDbContext(ConnectionString)) // write your code in this block
+            {
+                var stud = new Student()
+                {
+                    Jmbag = "0036123456",
+                    Name = "Pero"
+                };
+                var prof = new Professor()
+                {
+                    Name = "Ivan"
+                };
+                stud.Mentor = prof;
+
+                db.Students.Add(stud);
+                db.Professors.Add(prof);
+                db.SaveChanges();
+                Console.WriteLine(db.Students.Find(stud.Jmbag)?.Name);
+
+                var s = db.Students.Find(stud.Jmbag);
+                s.Name = "Petar";
+                db.Entry(s).State = EntityState.Modified;
+                db.SaveChanges();
+                Console.WriteLine(db.Students.Find(stud.Jmbag)?.Name);
+
+                var p1 = db.Professors.Where(p => p.Name.StartsWith("I")).Select(p => "Id: " + p.Id);
+                Console.WriteLine(p1.FirstOrDefault());
+                var p2 = from p in db.Professors
+                    where p.Name.StartsWith("I")
+                    select "Id: " + p.Id;
+                Console.WriteLine(p2.FirstOrDefault());
+                
+
+                db.Students.Remove(stud);
+                db.SaveChanges();
+                Console.WriteLine(db.Students.Find(stud.Jmbag)?.Name);
+                Console.WriteLine(db.Professors.Find(prof.Id)?.Name);
+            }
         }
 
         private static void CreateDemo()
