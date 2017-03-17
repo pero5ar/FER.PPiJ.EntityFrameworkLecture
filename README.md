@@ -1,1 +1,1 @@
-# Entity Framework Lecture
+# C# and Entity Framework Lecture
