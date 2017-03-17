@@ -6,7 +6,7 @@ namespace SimpleUniversityManagement
 {
     public class TestData
     {
-        private List<string> _names = new List<string>()
+        private readonly List<string> _names = new List<string>()
         {
             "Ivo",
             "Mate",

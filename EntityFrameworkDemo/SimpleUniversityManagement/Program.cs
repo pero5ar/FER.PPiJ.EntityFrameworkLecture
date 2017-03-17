@@ -14,10 +14,10 @@ namespace SimpleUniversityManagement
         static void Main(string[] args)
         {
             CreateDemo();
-            // Print().Wait();
+            Print().Wait();
             RunDemo();
             DeleteDemo();
-            // Print().Wait();
+            Print().Wait();
         }
 
         private static void RunDemo()
@@ -49,8 +49,8 @@ namespace SimpleUniversityManagement
                 var p1 = db.Professors.Where(p => p.Name.StartsWith("I")).Select(p => "Id: " + p.Id);
                 Console.WriteLine(p1.FirstOrDefault());
                 var p2 = from p in db.Professors
-                    where p.Name.StartsWith("I")
-                    select "Id: " + p.Id;
+                        where p.Name.StartsWith("I")
+                        select "Id: " + p.Id;
                 Console.WriteLine(p2.FirstOrDefault());
                 
 
@@ -74,13 +74,14 @@ namespace SimpleUniversityManagement
 
         private static async Task Print()
         {
+            Console.WriteLine(">START PRINT");
             using (var db = new UniversityDbContext(ConnectionString))
             {
                 await db.Students.ForEachAsync(s => Console.WriteLine($"{s.Jmbag} {s.Name}"));
                 await db.Professors.ForEachAsync(p => Console.WriteLine($"{p.Id} {p.Name}"));
                 await db.Classes.ForEachAsync(c => Console.WriteLine($"{c.Id} {c.Ects} {c.Name}"));
             }
-            Console.WriteLine("END PRINT");
+            Console.WriteLine(">END PRINT");
         }
 
         private static void DeleteDemo()
@@ -95,7 +96,7 @@ namespace SimpleUniversityManagement
                 cs.ForEach(c => db.Classes.Remove(c));
                 db.SaveChanges();
             }
-            Console.WriteLine("IZBRISANO");
+            Console.WriteLine(">IZBRISANO");
         }
 
 
