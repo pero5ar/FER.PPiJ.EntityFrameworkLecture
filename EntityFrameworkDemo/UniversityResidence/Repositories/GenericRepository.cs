@@ -37,7 +37,7 @@ namespace UniversityResidence.Repositories
 
         public bool Update(T item)
         {
-            if (item == null || !_table.Any(i => i.Equals(item))) return false;
+            if (item == null) return false;
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
             return true;
@@ -45,7 +45,7 @@ namespace UniversityResidence.Repositories
 
         public bool Remove(T item)
         {
-            if (item == null || !_table.Any(i => i.Equals(item))) return false;
+            if (item == null) return false;
             _table.Remove(item);
             _context.SaveChanges();
             return true;
