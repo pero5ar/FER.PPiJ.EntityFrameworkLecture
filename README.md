@@ -1,1 +1,1 @@
-# FER.PPiJ.EntityFrameworkLecture
+# C# and Entity Framework Lecture
