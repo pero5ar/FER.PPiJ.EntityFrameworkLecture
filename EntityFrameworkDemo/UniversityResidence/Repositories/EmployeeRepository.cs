@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using UniversityResidence.Interfaces;
 using UniversityResidence.Models;
@@ -21,5 +22,11 @@ namespace UniversityResidence.Repositories
         {
             return _table.Where(e => e.Position.Equals(position, StringComparison.OrdinalIgnoreCase)).ToList();
         }
+
+        public List<Employee> GetWithWorkPlace()
+        {
+            return _table.Include(e => e.WorkPlace).ToList();
+        }
+        
     }
 }

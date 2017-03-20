@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using UniversityResidence.Interfaces;
 using UniversityResidence.Models;
@@ -31,6 +32,11 @@ namespace UniversityResidence.Repositories
         public List<Room> GetFree()
         {
             return _table.Where(r => r.Occupants.Count < r.Capacity).ToList();
+        }
+
+        public List<Room> GetWithOccupants()
+        {
+            return _table.Include(r => r.Occupants).Include(r => r.Hall).ToList();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.Core.Metadata.Edm;
 
 namespace UniversityResidence.Models
 {
@@ -20,6 +19,14 @@ namespace UniversityResidence.Models
 
         public Room Room { get; set; }
 
+
+        public Student() { }    // EF needs this
+
+
+        public Student(string jmbag)
+        {
+            Jmbag = jmbag;
+        }
 
         public override bool Equals(object obj)
         {

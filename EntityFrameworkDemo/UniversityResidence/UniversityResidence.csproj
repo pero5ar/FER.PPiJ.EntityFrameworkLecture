@@ -66,6 +66,7 @@
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="UniversityResidenceDbContext.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

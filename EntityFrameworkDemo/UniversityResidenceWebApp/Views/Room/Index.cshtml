@@ -1,0 +1,28 @@
+﻿@model System.Collections.Generic.List<UniversityResidence.Models.Room>
+
+@{
+    ViewBag.Title = "Rooms";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-striped table-hover ">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Hall</th>
+            <th>Capacity</th>
+            <th>Occupants</th>
+        </tr>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.Id</td>
+                <td>@room.Hall.Name</td>
+                <td>@room.Capacity</td>
+                <td>@string.Join(", ",room.Occupants.Select(o => o.FirstName + " " + o.LastName))</td>
+            </tr>
+        }
+    </tbody>
+</table>

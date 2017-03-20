@@ -19,6 +19,15 @@ namespace UniversityResidence.Models
         public List<Employee> Employees { get; set; }
 
 
+        public ResidenceHall() { }   // EF needs this
+
+
+        public ResidenceHall(string adress)
+        {
+            Id = Guid.NewGuid();
+            Adress = adress;
+        }
+
         public override bool Equals(object obj)
         {
             var hall = obj as ResidenceHall;

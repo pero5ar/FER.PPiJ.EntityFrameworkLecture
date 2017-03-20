@@ -1,0 +1,30 @@
+﻿@model System.Collections.Generic.List<UniversityResidence.Models.Employee>
+
+@{
+    ViewBag.Title = "Employees";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-striped table-hover ">
+    <tbody>
+        <tr>
+            <th>Oib</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Work Place</th>
+        </tr>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Oib</td>
+                <td>@emp.FirstName</td>
+                <td>@emp.LastName</td>
+                <td>@emp.Position</td>
+                <td>@string.Join(", ", emp.WorkPlace.Select(o => o.Name))</td>
+            </tr>
+        }
+    </tbody>
+</table>

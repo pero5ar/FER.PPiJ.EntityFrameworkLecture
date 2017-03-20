@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using UniversityResidence.Exceptions;
 using UniversityResidence.Interfaces;
 using UniversityResidence.Models;
@@ -21,6 +23,11 @@ namespace UniversityResidence.Repositories
         public Student Get(string jmbag)
         {
             return _table.FirstOrDefault(s => s.Jmbag.Equals(jmbag));
+        }
+
+        public List<Student> GetAllWithRooms()
+        {
+            return _table.Include(s => s.Room).ToList();
         }
     }
 }

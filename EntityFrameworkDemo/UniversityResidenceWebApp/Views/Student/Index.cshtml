@@ -1,0 +1,30 @@
+﻿@model System.Collections.Generic.List<UniversityResidence.Models.Student>
+
+@{
+    ViewBag.Title = "Students";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-striped table-hover ">
+    <tbody>
+        <tr>
+            <th>Jmbag</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Year of Enrollment</th>
+            <th>Room</th>
+        </tr>
+        @foreach (var stud in Model)
+        {
+            <tr>
+                <td>@stud.Jmbag</td>
+                <td>@stud.FirstName</td>
+                <td>@stud.LastName</td>
+                <td>@stud.DateOfEnrollment.Year</td>
+                <td>@stud.Room?.Id</td>
+            </tr>
+        }
+    </tbody>
+</table>

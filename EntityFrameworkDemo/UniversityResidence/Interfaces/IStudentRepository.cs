@@ -1,9 +1,11 @@
-﻿using UniversityResidence.Models;
+﻿using System.Collections.Generic;
+using UniversityResidence.Models;
 
 namespace UniversityResidence.Interfaces
 {
-    public interface IStudentRepository
+    public interface IStudentRepository : IGenericRepository<Student>
     {
         Student Get(string jmbag);
+        List<Student> GetAllWithRooms();
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUniversityManagement"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityResidence", "UniversityResidence\UniversityResidence.csproj", "{5F3E9174-F60E-471C-8683-007584ABD540}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UniversityResidenceWebApp", "UniversityResidenceWebApp\UniversityResidenceWebApp.xproj", "{BD56CDD0-7436-4D6B-B9E4-3833232A4BF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5F3E9174-F60E-471C-8683-007584ABD540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3E9174-F60E-471C-8683-007584ABD540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3E9174-F60E-471C-8683-007584ABD540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD56CDD0-7436-4D6B-B9E4-3833232A4BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD56CDD0-7436-4D6B-B9E4-3833232A4BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD56CDD0-7436-4D6B-B9E4-3833232A4BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD56CDD0-7436-4D6B-B9E4-3833232A4BF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

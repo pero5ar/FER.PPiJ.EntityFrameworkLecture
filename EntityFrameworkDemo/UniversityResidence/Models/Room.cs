@@ -17,6 +17,15 @@ namespace UniversityResidence.Models
         public List<Student> Occupants { get; set; }
 
 
+        public Room() { }   // EF needs this
+
+
+        public Room(int capacity)
+        {
+            Id = Guid.NewGuid();
+            Capacity = capacity;
+        }
+
         public override bool Equals(object obj)
         {
             var room = obj as Room;

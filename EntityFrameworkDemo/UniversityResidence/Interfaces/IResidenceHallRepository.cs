@@ -4,7 +4,7 @@ using UniversityResidence.Models;
 
 namespace UniversityResidence.Interfaces
 {
-    public interface IResidenceHallRepository
+    public interface IResidenceHallRepository : IGenericRepository<ResidenceHall>
     {
         ResidenceHall Get(Guid id);
         int CalculateCapacity(Guid id);
