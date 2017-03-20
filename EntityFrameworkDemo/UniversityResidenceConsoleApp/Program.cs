@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using UniversityResidence;
+using UniversityResidence.Interfaces;
 using UniversityResidence.Models;
 using UniversityResidence.Repositories;
 
@@ -28,7 +30,13 @@ namespace UniversityResidenceConsoleApp
                 // residenceHallRepository.Add(hall);
                 /*var h = residenceHallRepository.Get(hall.Id);
                 residenceHallRepository.Remove(h);*/
+
+                var studentRepository = new StudentRepository(db);
+                var roomRepository = new RoomRepository(db);
+                var stud = studentRepository.Get("00250724081");
+                if (stud.FindARoom(roomRepository)) studentRepository.Update(stud);
             }
         }
+        
     }
 }
